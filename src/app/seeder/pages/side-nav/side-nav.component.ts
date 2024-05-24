@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgFor } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -28,12 +28,14 @@ import { SharedModule } from '../../../shared/shared.module';
     RouterOutlet,
     SharedModule,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    NgFor
   ]
 })
 export class SideNavComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
+  navOptions = [{ icon: "assets/icons/home.png", link: "", title: "Home" }, { icon: "assets/icons/coin.png", link: "/cash-accleration", title: "Cash Accleration" }]
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

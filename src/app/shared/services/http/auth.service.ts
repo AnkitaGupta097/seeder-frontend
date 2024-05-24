@@ -30,7 +30,7 @@ export class AuthService {
             new Date().getTime() + response.expiresIn
           );
 
-          localStorage.setItem('userData', JSON.stringify({ ...response, tokenExpirationDate }));
+          sessionStorage.setItem('userData', JSON.stringify({ ...response, tokenExpirationDate }));
           this.autoLogout(response.expiresIn);
         }),
         catchError((errResponse) => { console.error(errResponse); return throwError(() => new Error(errResponse.error?.message)) }),
@@ -39,7 +39,7 @@ export class AuthService {
 
   logout(): void {
     // Remove user data on logout
-    localStorage.removeItem('userData');
+    sessionStorage.removeItem('userData');
     // Clear the token expiration timer
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
@@ -55,7 +55,7 @@ export class AuthService {
   }
 
   autoLogin() {
-    const userData = JSON.parse(localStorage.getItem('userData') as string);
+    const userData = JSON.parse(sessionStorage.getItem('userData') as string);
     if (!userData) {
       return;
     }
@@ -72,7 +72,7 @@ export class AuthService {
 
 
   isAuthenticated(): boolean {
-    const userData = JSON.parse(localStorage.getItem('userData') as string)
+    const userData = JSON.parse(sessionStorage.getItem('userData') as string)
     return !!(userData?.token)
   }
 

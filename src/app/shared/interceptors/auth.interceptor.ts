@@ -13,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        const userData = JSON.parse(localStorage.getItem('userData') as string);
+        const userData = JSON.parse(sessionStorage.getItem('userData') as string);
 
         const token = userData?.token;
         const headers = this.whiteListUrls.find(w => req.url.includes(w) && req.method == 'POST') ? req.headers : req.headers.append('Authorization', `Bearer ${token}`);
