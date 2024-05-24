@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div appGridContainer flexDirection="column" gap="40px">
+      <div appGridContainer gap="12px">
+        <img src="assets/icons/logo.svg" class="logo" />
+        <div class="text_24_bold">Seeder</div>
+      </div>
+      <mat-nav-list class="nav-list-container">
+        <a mat-list-item [routerLink]="navOption.link" *ngFor="let navOption of navOptions;">
+          <div appGridContainer gap="12px">
+            <img [src]="navOption.icon" class="nav-icon" />
+            {{navOption.title}}
+          </div>
+        </a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
