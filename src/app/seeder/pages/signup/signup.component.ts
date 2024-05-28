@@ -37,7 +37,7 @@ export class SignupComponent {
 
   ngOnInit(): void {
     this.formGroup.valueChanges.subscribe(() => {
-      if (!!this.responseError) {
+      if (this.responseError) {
         this.responseError = null
       }
     })

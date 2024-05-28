@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { MatCard } from '@angular/material/card';
-import { NgComponentOutlet } from '@angular/common';
+import { NgComponentOutlet, Location } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from '../header/header.component';
 import { MatIconModule } from '@angular/material/icon';
-import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContractService } from '../../services/contract.service';
 

@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -14,14 +14,14 @@ export class UserService {
 
     signUp(payload: any): Observable<any> {
         return this.httpClient
-            .post<any | HttpErrorResponse>("users", { ...payload })
+            .post<any>("users", { ...payload })
     }
 
     getUser() {
         const userData = JSON.parse(sessionStorage.getItem('userData') as string);
 
         this.httpClient
-            .get<any | HttpErrorResponse>(`users/${userData.id}`).subscribe({ next: (response) => { this.loggedInUser.next(response) } })
+            .get<any>(`users/${userData.id}`).subscribe({ next: (response) => { this.loggedInUser.next(response) } })
     }
 
 }

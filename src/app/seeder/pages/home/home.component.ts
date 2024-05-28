@@ -31,7 +31,7 @@ export class HomeComponent {
     this.contractService.contracts.subscribe((contracts) => {
       if (contracts?.length) {
         this.totalAvailableAdvance = contracts?.filter((con: any) => con.status == "AVAILABLE")?.reduce((accumulator: number, contract: any) => {
-          return accumulator += contract.totalAmount;
+          return accumulator + contract.totalAmount;
         }, 0)
       } else {
         this.contractService.getContracts().subscribe(() => { })

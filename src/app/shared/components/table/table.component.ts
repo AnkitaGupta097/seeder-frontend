@@ -57,5 +57,10 @@ export class TableComponent implements OnInit {
     return col == "select"
   }
 
+  onKeyDownRow(event: KeyboardEvent, row: any) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.selection.toggle(row)
+    }
+  }
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 
@@ -23,7 +23,7 @@ export class ContractService {
         }
 
         return this.httpClient
-            .get<any | HttpErrorResponse>("contracts", { params })
+            .get<any>("contracts", { params })
             .pipe(
                 map((responseData) => {
                     return responseData.map((contracts: any) => ({
