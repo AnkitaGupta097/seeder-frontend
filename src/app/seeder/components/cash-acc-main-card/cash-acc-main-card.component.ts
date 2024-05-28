@@ -20,15 +20,19 @@ export class CashAccMainCardComponent implements OnInit {
   dataSource = []
   isLoading = false
   error = null
-  displayedColumns = ["name", "status", "type", "perPayment", "totalFinanced", "totalAmount", "termLength"]
+  cols = [{ def: "name", name: "Name" }, { def: "status", name: "Status" }, { def: "type", name: "Type" }, { def: "perPayment", name: "Per Payment" }, { def: "totalFinanced", name: "Total Financed" }, { def: "totalAmount", name: "Total Amount" }, { name: "Term Length", def: "termLength" }]
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.contractService.getContracts().subscribe({
-      next: (contracts) => {
+
+
+    this.contractService.contracts.subscribe((contracts) => {
+      if (contracts?.length) {
         this.dataSource = contracts
-      },
-      error: (errorMessage) => (this.error = errorMessage)
+        this.isLoading = false
+      } else {
+        this.contractService.getContracts().subscribe(() => { this.isLoading = false })
+      }
     })
   }
 

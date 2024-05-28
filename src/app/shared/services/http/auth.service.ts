@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
-
 })
 export class AuthService {
 
@@ -32,8 +31,7 @@ export class AuthService {
 
           sessionStorage.setItem('userData', JSON.stringify({ ...response, tokenExpirationDate }));
           this.autoLogout(response.expiresIn);
-        }),
-        catchError((errResponse) => { console.error(errResponse); return throwError(() => new Error(errResponse.error?.message)) }),
+        })
       );
   }
 
