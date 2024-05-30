@@ -13,23 +13,28 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class TableComponent implements OnInit {
 
-  @Input() dataSource = []
+  @Input() dataSource: any[] = []
 
   @Input() displayedColumns: Array<{ def: string, name: string }> = []
 
   @Input() multiselect = false
 
-  colDefinations: Array<string> = []
-
   selection = new SelectionModel<any>(true, []);
 
   @Output() selectionChange = new EventEmitter<any[]>();
 
-  ngOnInit(): void {
+  get finalDisplayedColumns() {
     if (this.multiselect) {
-      this.displayedColumns = [{ def: "select", name: "Select" }, ...this.displayedColumns]
+      return [{ def: "select", name: "Select" }, ...this.displayedColumns]
     }
-    this.colDefinations = this.displayedColumns.map((c) => c.def)
+    return this.displayedColumns
+  }
+
+  get colDefinations() {
+    return this.finalDisplayedColumns.map((c) => c.def)
+  }
+
+  ngOnInit(): void {
 
     this.selection.changed.subscribe(() => {
       this.selectionChange.emit(this.selection.selected);

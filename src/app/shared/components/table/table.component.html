@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="dataSource">
 
 
-  <ng-container [matColumnDef]="column.def" *ngFor="let column of displayedColumns">
+  <ng-container [matColumnDef]="column.def" *ngFor="let column of finalDisplayedColumns">
 
     <div *ngIf="isSelectColumn(column.def)">
       <th mat-header-cell *matHeaderCellDef>
@@ -24,7 +24,7 @@
   </ng-container>
 
 
-  <tr mat-header-row *matHeaderRowDef="colDefinations"></tr>
-  <tr mat-row *matRowDef="let row; columns: colDefinations;" (click)="multiselect? selection.toggle(row): null"
+  <tr mat-header-row *matHeaderRowDef="colDefinations; sticky: true"></tr>
+  <tr mat-row *matRowDef=" let row; columns: colDefinations;" (click)="multiselect? selection.toggle(row): null"
     (keydown)="onKeyDownRow($event, row)"></tr>
 </table>

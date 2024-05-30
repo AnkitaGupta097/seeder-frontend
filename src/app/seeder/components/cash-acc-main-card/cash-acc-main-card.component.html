@@ -1,10 +1,14 @@
-<div appGridContainer flexDirection="column" gap="20px" alignItems="start" padding="24px">
+<div appGridContainer flexDirection="column" gap="16px" alignItems="start" padding="24px">
     <h2> Cash accleration </h2>
-    <div appGridContainer gap="16px">
-        <button mat-stroked-button color="primary">My Contracts</button>
-        <button mat-stroked-button color="primary">My Cashkicks</button>
-    </div>
 
-    <app-table [dataSource]="dataSource" [displayedColumns]="cols"></app-table>
+    <div appGridContainer gap="16px">
+        <button mat-stroked-button color="primary" routerLink="contracts" routerLinkActive="active">My
+            Contracts</button>
+        <button mat-stroked-button color="primary" routerLink="cashkicks" routerLinkActive="active">My
+            Cashkicks</button>
+    </div>
+    <div appGridContainer>
+        <router-outlet></router-outlet>
+    </div>
 
 </div>

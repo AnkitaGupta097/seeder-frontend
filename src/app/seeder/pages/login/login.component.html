@@ -1,13 +1,13 @@
 <app-login-template [heading]="heading" [subheading]="subheading" [onButtonClick]="onLogin" [buttonText]="buttonText"
     [formGroup]="formGroup" [imgSrc]="imgSrc" [buttonDisabled]="!!responseError">
     <mat-form-field appearance="fill">
-        <img matPrefix src="assets/icons/direct.png" />
+        <img matPrefix src="assets/icons/direct.png" alt="email"/>
         <input formControlName="email" matInput placeholder="Enter your email id">
         <mat-error>{{getErrorMessage("email")}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <img matPrefix src="assets/icons/lock.png" />
+        <img matPrefix src="assets/icons/lock.png" alt="password"/>
         <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password"
             formControlName="password">
         <button mat-icon-button matSuffix (click)="hide = !hide">

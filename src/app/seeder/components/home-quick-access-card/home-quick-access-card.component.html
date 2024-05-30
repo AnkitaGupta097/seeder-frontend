@@ -3,9 +3,9 @@
         Launch a new Cash Kick
     </h2>
     <div class="mat-h4 mat-subheading-1">
-        You have upto <b>{{totalCashAdvance}}</b> available for a new cash advance
+        You have upto <b>{{totalCashAdvance | currency}}</b> available for a new cash advance
     </div>
 
-    <button mat-flat-button color="primary" (click)="onLaunchNewCashkickClick()">New
+    <button mat-flat-button color="primary" [disabled]="!totalCashAdvance" (click)="onLaunchNewCashkickClick()">New
         Cash Kick</button>
 </div>

@@ -4,15 +4,16 @@
 
     <div appGridContainer gap="24px">
         <mat-card appGridItem class="summary-card" flex="7">
-            <ng-container *ngComponentOutlet="summaryCardContentNode"></ng-container>
+            <ng-container
+                *ngComponentOutlet="summaryCardContentNode;"></ng-container>
         </mat-card>
         <mat-card appGridItem alignSelf="stretch" flex="3">
             <ng-container
-                *ngComponentOutlet="quickAccessCardContentNode; inputs: { totalCashAdvance: totalAvailableAdvance}"></ng-container>
+                *ngComponentOutlet="quickAccessCardContentNode;"></ng-container>
         </mat-card>
     </div>
 
-    <div appGridContainer height="100%">
+    <div appGridContainer height="60%">
         <mat-card appGridItem alignSelf="stretch">
             <ng-container *ngComponentOutlet=" mainCardContentNode"></ng-container>
         </mat-card>

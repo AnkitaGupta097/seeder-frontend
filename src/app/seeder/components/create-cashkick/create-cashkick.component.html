@@ -4,7 +4,7 @@
     <ng-container *ngComponentOutlet="headerNode; inputs: headerContent"></ng-container>
 
     <mat-card>
-        <button mat-button (click)="onBackClick">
+        <button mat-button (click)="onBackClick()">
             <mat-icon>arrow_back</mat-icon>
             Back
         </button>
@@ -13,13 +13,15 @@
     <div appGridContainer height="100%" gap="20px">
         <mat-card appGridItem flex="7" alignSelf="stretch">
             <div appGridContainer flexDirection="column" gap="20px" alignItems="start" padding="24px">
-                <h2>Selected contracts</h2>
-                <app-table [dataSource]="contractsDisplayed" [multiselect]="!isReview"
+                <h2>Selected Contracts</h2>
+                <app-table [dataSource]="isReview? contractsSelected :contractsDisplayed" [multiselect]="!isReview"
                     (selectionChange)="onChangeSelection($event)" [displayedColumns]="colmsDisplayed"></app-table>
             </div>
         </mat-card>
 
-        <mat-card appGridItem flex="3" alignSelf="stretch">
+        <mat-card appGridItem flex="3" alignSelf="start">
+            <app-cashkick-summary [contractsSelected]="contractsSelected" [isReview]="isReview"
+                [totalAvailableAmount]="totalAvailableAmount" [onButtonClick]="onCreateCashkickClick"></app-cashkick-summary>
         </mat-card>
     </div>
 </div>

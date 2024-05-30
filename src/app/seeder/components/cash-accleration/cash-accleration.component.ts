@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeTemplateComponent } from '../../templates/home-template/home-template.component';
 
 @Component({
@@ -8,8 +8,12 @@ import { HomeTemplateComponent } from '../../templates/home-template/home-templa
   templateUrl: './cash-accleration.component.html',
   styleUrl: './cash-accleration.component.css'
 })
-export class CashAcclerationComponent {
+export class CashAcclerationComponent implements OnInit {
 
   heading: string = "Cash acclerations"
   subheading: string = "Place to create new cash kicks to run your business"
+
+
+  ngOnInit(): void {
+  }
 }

@@ -28,3 +28,7 @@ body {
 .success-snack {
     background-color: #02be6e;
 }
+
+.dialog-box .mat-dialog-container {
+    padding: 24px;
+}

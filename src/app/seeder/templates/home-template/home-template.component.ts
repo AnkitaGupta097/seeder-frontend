@@ -23,7 +23,6 @@ export class HomeTemplateComponent implements OnInit {
 
   @Input() heading: string = ""
   @Input() subheading: string = ""
-  @Input() totalAvailableAdvance = 0
 
 
   ngOnInit(): void {

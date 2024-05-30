@@ -8,6 +8,8 @@ import { CashAcclerationComponent } from './seeder/components/cash-accleration/c
 import { AuthGuard } from './shared/guards/auth.guard';
 import { PageNotFoundComponent } from './seeder/components/page-not-found/page-not-found.component';
 import { CreateCashkickComponent } from './seeder/components/create-cashkick/create-cashkick.component';
+import { ContractsComponent } from './seeder/components/contracts/contracts.component';
+import { CashkicksComponent } from './seeder/components/cashkicks/cashkicks.component';
 
 export const routes: Routes = [{
     path: "login",
@@ -30,6 +32,17 @@ export const routes: Routes = [{
     }, {
         path: "cash-accleration",
         component: CashAcclerationComponent,
+        children: [{
+            path: "contracts",
+            component: ContractsComponent
+        }, {
+            path: "cashkicks",
+            component: CashkicksComponent
+        }, {
+            path: "",
+            redirectTo: "contracts",
+            pathMatch: "full"
+        }]
     },
     {
         path: "cashkick/:action",

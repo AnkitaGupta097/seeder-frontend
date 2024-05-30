@@ -8,11 +8,11 @@ import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'r
 })
 export class ContractService {
 
-    contracts = new BehaviorSubject<any>([])
+    contracts = new BehaviorSubject<any>(null)
 
     constructor(private httpClient: HttpClient) {
     }
-
+   
     getContracts(quryParams: any = {}): Observable<any> {
 
         let params = new HttpParams();
