@@ -35,7 +35,7 @@ export class CashkicksComponent {
     })
 
     const state: any = this.location.getState()
-    if (state && state.refetchContracts) {
+    if (state?.refetchContracts) {
       this.contractService.getContracts().subscribe(() => {})
       this.router.navigate([], {
         relativeTo: this.route,

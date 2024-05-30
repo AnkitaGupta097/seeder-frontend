@@ -28,7 +28,7 @@ export class CashAccSummaryCardComponent {
   }
 
   get availableCreditString() {
-    return this.currencyPipe.transform(this.availableCredit) || ""
+    return this.currencyPipe.transform(this.availableCredit) ?? ""
   }
 
   ngOnInit(): void {

@@ -25,7 +25,7 @@ export class ContractsComponent implements OnInit {
 
     this.contractService.contracts.subscribe((contracts) => {
       if (contracts) {
-        this.dataSource = contracts || []
+        this.dataSource = contracts
         this.isLoading = false
       }
     })
